@@ -22,7 +22,11 @@ public class PlayerHP : MonoBehaviour, ITakeDamage
         hearts[currentHP].SetActive(false);
         if (currentHP <= 0)
         {
-            //llamar al la instancia de la clase gamemanager
+            //llamar al la instancia de la clase gamemanager, perder
+        }
+        else
+        {
+            //llamar al la instancia de la clase gamemanager, instanciar nuevo player
         }
     }
 }

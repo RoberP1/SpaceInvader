@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
         movement.Move(horizontalImput * Vector2.right);
 
-        if (Input.GetButtonDown("Fire1") && canShoot)
+        if (Input.GetButton("Fire1") && canShoot)
         {
             StartCoroutine(ShootCooldown());
         }
