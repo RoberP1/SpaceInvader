@@ -12,5 +12,6 @@ public class Shooting : MonoBehaviour
         proyectile.transform.position = transform.position;
         proyectile.transform.rotation = transform.rotation;
         proyectile.GetComponent<Movement>().speed = proyectileSpeed;
+        AudioManager.instance.PlayShootClip();
     }
 }

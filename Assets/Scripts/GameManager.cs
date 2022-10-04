@@ -52,18 +52,25 @@ public class GameManager : MonoBehaviour
 
     public void LoseOneLife()
     {
+        AudioManager.instance.PlayLoseLifeClip();
         lives--;
         hearts[lives].SetActive(false);
         if (lives <= 0)
         {
-            OnLose.Invoke();
-            Time.timeScale = 0;
+            Lose();
         }
         else
         {
             StartCoroutine(Respawn());  
         }
     }
+
+    public void Lose()
+    {
+        OnLose.Invoke();
+        Time.timeScale = 0;
+    }
+
     IEnumerator Respawn()
     {
         Time.timeScale = 0;
@@ -77,4 +84,5 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }
+    
 }
