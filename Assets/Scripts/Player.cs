@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Shooting))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,ITakeDamage
 {
     Movement movement;
     Shooting shooting;
@@ -37,5 +37,11 @@ public class Player : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;
+    }
+
+    public void TakeDamage()
+    {
+        GameManager.instance.LoseOneLife();
+        gameObject.SetActive(false);
     }
 }

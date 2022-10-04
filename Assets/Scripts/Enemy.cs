@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour,ITakeDamage
 
     public void TakeDamage()
     {
+        GameManager.instance.AddScore();
         gameObject.SetActive(false);
     }
 
