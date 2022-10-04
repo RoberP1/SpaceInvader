@@ -21,7 +21,7 @@ public class EnemyMover : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == limit)
+        if (collision.CompareTag("Limit"))
         {
             movingDirection *= -1;
             foreach (Enemy enemy in enemies)

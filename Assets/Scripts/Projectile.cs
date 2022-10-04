@@ -9,12 +9,17 @@ public class Projectile : MonoBehaviour
     {
         movement = GetComponent<Movement>();
     }
-    void Update()
+    private void FixedUpdate()
     {
         movement.Move(transform.up);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ProjectilePool.instance.ReturnProyectile(gameObject);
+        if (collision.gameObject.tag != gameObject.tag)
+        {
+            collision.GetComponent<ITakeDamage>()?.TakeDamage();
+            ProjectilePool.instance.ReturnProyectile(gameObject);
+        }
+        
     }
 }

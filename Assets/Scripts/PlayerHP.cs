@@ -19,7 +19,7 @@ public class PlayerHP : MonoBehaviour, ITakeDamage
     public void TakeDamage()
     {
         currentHP--;
-        hearts[currentHP].SetActive(false);
+        //hearts[currentHP].SetActive(false);
         if (currentHP <= 0)
         {
             //llamar al la instancia de la clase gamemanager, perder
