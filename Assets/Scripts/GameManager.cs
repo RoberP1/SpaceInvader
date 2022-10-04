@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public int lives;
     public GameObject[] hearts;
 
+    public int totalEnemies;
+
+    public UnityEvent OnWin = new UnityEvent();
+    public UnityEvent OnLose = new UnityEvent();
+
     private void Awake()
     {
         //singleton
@@ -27,12 +32,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         UpdateScore();
+        totalEnemies = FindObjectsOfType<Enemy>().Length;
     }
 
     public void AddScore()
     {
         score++;
         UpdateScore();
+        if (score == totalEnemies)
+        {
+            OnWin.Invoke();
+            Time.timeScale = 0;
+        }
     }
     public void UpdateScore()
     {
@@ -45,12 +56,12 @@ public class GameManager : MonoBehaviour
         hearts[lives].SetActive(false);
         if (lives <= 0)
         {
-            //game over
+            OnLose.Invoke();
+            Time.timeScale = 0;
         }
         else
         {
             StartCoroutine(Respawn());  
-
         }
     }
     IEnumerator Respawn()
@@ -62,7 +73,7 @@ public class GameManager : MonoBehaviour
             ProjectilePool.instance.ReturnProyectile(Projectile.gameObject);
         }
         
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(2f);
         Time.timeScale = 1;
         Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }

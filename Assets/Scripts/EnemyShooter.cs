@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class EnemyShooter : MonoBehaviour
 {
-    Enemy[] enemies;
+    public List<Enemy> enemies;
     void Start()
     {
-        enemies = FindObjectsOfType<Enemy>();
+        enemies = FindObjectsOfType<Enemy>().ToList();
         InvokeRepeating("Shoot", 2, 1);
     }
 
     public void Shoot()
     {
-        int randomEnemy = Random.Range(0, enemies.Length);
+        int randomEnemy = Random.Range(0, enemies.Count);
         enemies[randomEnemy].shooting.Shoot();
     }
 }

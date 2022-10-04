@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour,ITakeDamage
     public void TakeDamage()
     {
         GameManager.instance.AddScore();
+        FindObjectOfType<EnemyShooter>().enemies.Remove(this);
         gameObject.SetActive(false);
     }
 
