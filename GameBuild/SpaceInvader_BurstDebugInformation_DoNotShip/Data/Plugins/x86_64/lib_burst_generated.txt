@@ -155,8 +155,8 @@ Library: lib_burst_generated
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Device.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.2D.Tilemap.Extras.dll
---root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --assembly-folder=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\
@@ -321,8 +321,8 @@ Library: lib_burst_generated
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Device.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.2D.Tilemap.Extras.dll
---root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --assembly-folder=D:\Unity\SpaceInvader\Temp\StagingArea\Data\Managed\

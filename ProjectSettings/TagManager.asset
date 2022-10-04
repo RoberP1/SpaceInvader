@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Limit
   - Enemy
+  - LoseZone
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Projectile
   - EnemyMover
   - Limit
-  - 
-  - 
+  - LoseZone
+  - Enemy
   - 
   - 
   - 

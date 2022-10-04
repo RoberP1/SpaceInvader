@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0011e3cd6743a5846807038bb009f958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 1
+  shootDelay: 0.75
 --- !u!61 &8456878553863813648
 BoxCollider2D:
   m_ObjectHideFlags: 0

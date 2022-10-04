@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public int lives;
     public GameObject[] hearts;
 
-    public int totalEnemies;
+    public int enemies;
 
     public UnityEvent OnWin = new UnityEvent();
     public UnityEvent OnLose = new UnityEvent();
@@ -25,14 +25,15 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
         
         UpdateScore();
-        totalEnemies = FindObjectsOfType<Enemy>().Length;
+        enemies = FindObjectsOfType<Enemy>().Length;
     }
 
     public void AddScore()
     {
-        score++;
+        score+=50;
+        enemies--;
         UpdateScore();
-        if (score == totalEnemies)
+        if (enemies <= 0)
         {
             Win();
         }
