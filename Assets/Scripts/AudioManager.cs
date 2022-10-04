@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -10,31 +8,19 @@ public class AudioManager : MonoBehaviour
     public AudioClip invaderKilledClip;
     public AudioClip loseLifeClip;
 
+    [Range(0, 1)]
+    public float shootVolume = 0.5f;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
+    public void PlayShootClip() =>
+        AudioSource.PlayClipAtPoint(shootClip, Camera.main.transform.position,shootVolume);
 
-    public void PlayShootClip()
-    {
-        AudioSource.PlayClipAtPoint(shootClip, Camera.main.transform.position);
-    }
-
-    public void PlayInvaderKilledClip()
-    {
-        AudioSource.PlayClipAtPoint(invaderKilledClip, Camera.main.transform.position);
-    }
-
-    public void PlayLoseLifeClip()
-    {
-        AudioSource.PlayClipAtPoint(loseLifeClip, Camera.main.transform.position);
-    }
-
+    public void PlayInvaderKilledClip() =>
+        AudioSource.PlayClipAtPoint(invaderKilledClip, Camera.main.transform.position,shootVolume);
+    
+    public void PlayLoseLifeClip()=>
+        AudioSource.PlayClipAtPoint(loseLifeClip, Camera.main.transform.position,shootVolume);
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
@@ -8,7 +6,7 @@ public class EnemyMover : MonoBehaviour
     Movement movement;
     Enemy[] enemies;
     int movingDirection;
-    public LayerMask limit;
+    float downDistance = 0.5f;
     void Start()
     {
         movingDirection = 1;
@@ -26,7 +24,7 @@ public class EnemyMover : MonoBehaviour
             movingDirection *= -1;
             foreach (Enemy enemy in enemies)
             {
-                enemy.transform.position += Vector3.down * 0.5f;
+                enemy.transform.position += Vector3.down * downDistance;
             }
         }
     }

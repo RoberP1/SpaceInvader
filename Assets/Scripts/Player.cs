@@ -29,7 +29,6 @@ public class Player : MonoBehaviour,ITakeDamage
         {
             StartCoroutine(ShootCooldown());
         }
-
     }
     private IEnumerator ShootCooldown()
     {

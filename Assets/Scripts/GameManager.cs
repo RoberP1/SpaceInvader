@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -22,15 +21,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //singleton
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+        
         UpdateScore();
         totalEnemies = FindObjectsOfType<Enemy>().Length;
     }
@@ -41,36 +34,20 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         if (score == totalEnemies)
         {
-            OnWin.Invoke();
-            Time.timeScale = 0;
+            Win();
         }
     }
-    public void UpdateScore()
-    {
-        scoreText.text = "Score: " + score;
-    }
-
+    public void UpdateScore() => scoreText.text = "Score: " + score;
     public void LoseOneLife()
     {
         AudioManager.instance.PlayLoseLifeClip();
+        
         lives--;
         hearts[lives].SetActive(false);
-        if (lives <= 0)
-        {
-            Lose();
-        }
-        else
-        {
-            StartCoroutine(Respawn());  
-        }
+        
+        if (lives <= 0) Lose();
+        else StartCoroutine(Respawn());  
     }
-
-    public void Lose()
-    {
-        OnLose.Invoke();
-        Time.timeScale = 0;
-    }
-
     IEnumerator Respawn()
     {
         Time.timeScale = 0;
@@ -84,5 +61,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }
-    
+    public void Win()
+    {
+        OnWin.Invoke();
+        Time.timeScale = 0;
+    }
+    public void Lose()
+    {
+        OnLose.Invoke();
+        Time.timeScale = 0;
+    }
 }
