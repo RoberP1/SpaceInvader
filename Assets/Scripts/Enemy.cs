@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour,ITakeDamage
     {
         GameManager.instance.AddScore();
         FindObjectOfType<EnemyShooter>().enemies.Remove(this);
-        AudioManager.instance.PlayInvaderKilledClip();
+        AudioManager.instance.PlayClip(AudioManager.instance.invaderKilledClip);
         gameObject.SetActive(false);
     }
 }

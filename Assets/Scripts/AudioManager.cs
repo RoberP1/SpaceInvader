@@ -15,12 +15,6 @@ public class AudioManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
-    public void PlayShootClip() =>
-        AudioSource.PlayClipAtPoint(shootClip, Camera.main.transform.position,shootVolume);
-
-    public void PlayInvaderKilledClip() =>
-        AudioSource.PlayClipAtPoint(invaderKilledClip, Camera.main.transform.position,shootVolume);
-    
-    public void PlayLoseLifeClip()=>
-        AudioSource.PlayClipAtPoint(loseLifeClip, Camera.main.transform.position,shootVolume);
+    public void PlayClip(AudioClip clip) =>
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position,shootVolume);
 }

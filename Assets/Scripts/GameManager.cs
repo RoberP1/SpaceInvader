@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     public void UpdateScore() => scoreText.text = "Score: " + score;
     public void LoseOneLife()
     {
-        AudioManager.instance.PlayLoseLifeClip();
-        
+        AudioManager.instance.PlayClip(AudioManager.instance.loseLifeClip);
+
         lives--;
         hearts[lives].SetActive(false);
         
