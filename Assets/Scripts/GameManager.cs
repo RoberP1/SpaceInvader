@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerPrefab;
 
+    public int pointsPerEnemy = 50;
     public int score;
     public TextMeshProUGUI scoreText;
 
@@ -18,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent OnWin = new UnityEvent();
     public UnityEvent OnLose = new UnityEvent();
-
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -27,16 +27,12 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         enemies = FindObjectsOfType<Enemy>().Length;
     }
-
     public void AddScore()
     {
-        score+=50;
+        score += pointsPerEnemy;
         enemies--;
         UpdateScore();
-        if (enemies <= 0)
-        {
-            Win();
-        }
+        if (enemies <= 0) Win();
     }
     public void UpdateScore() => scoreText.text = "Score: " + score;
     public void LoseOneLife()
@@ -59,6 +55,7 @@ public class GameManager : MonoBehaviour
         }
         
         yield return new WaitForSecondsRealtime(2f);
+        
         Time.timeScale = 1;
         Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }

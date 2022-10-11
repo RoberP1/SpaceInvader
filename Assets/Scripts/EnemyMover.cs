@@ -13,10 +13,9 @@ public class EnemyMover : MonoBehaviour
         enemies = FindObjectsOfType<Enemy>();
         movement = GetComponent<Movement>();
     }
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() =>
         movement.Move(Vector2.right * movingDirection);
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Limit")
